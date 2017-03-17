@@ -4,14 +4,21 @@ import { render } from 'react-dom'
 var Todo = React.createClass({
   getInitialState: function(){
     return {
-      todos: ['wash up', 'nap', 'get some cheese']
+      todos: ['wash up', 'nap', 'get some cheese'],
+      age: 30
     }
   },
 
   render: function(){
+
+    var ager = setTimeout(function(){
+      this.setState({
+        age:35
+      })
+    }.bind(this), 2000)
     return(
       <div id = "todolist">
-        <p>The busiest ppl do that stuff</p>
+        <p>The busiest ppl at the age of {this.state.age} do that stuff</p>
         <ul>
           <li>{this.state.todos[0]}</li>
           <li>{this.state.todos[1]}</li>
